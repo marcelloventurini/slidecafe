@@ -9,10 +9,15 @@ export default class Slide {
     };
   }
 
+  transition(active) {
+    this.slide.style.transition = active ? "transform .4s" : "";
+  }
+
   onStart(event) {
     event.preventDefault();
     this.dist.startX = event.clientX;
     this.wrapper.addEventListener("mousemove", this.onMove);
+    this.transition(false);
   }
 
   updatePosition(clientX) {
@@ -33,6 +38,18 @@ export default class Slide {
   onEnd() {
     this.wrapper.removeEventListener("mousemove", this.onMove);
     this.dist.finalPosition = this.dist.movePosition;
+    this.transition(true);
+    this.changeSlideOnEnd();
+  }
+
+  changeSlideOnEnd() {
+    if (this.dist.movement > 160 && this.index.next !== undefined) {
+      this.activeNextSlide();
+    } else if (this.dist.movement < -160 && this.index.prev !== undefined) {
+      this.activePrevSlide();
+    } else {
+      this.changeSlide(this.index.active);
+    }
   }
 
   addSlideEvents() {
@@ -79,8 +96,21 @@ export default class Slide {
     this.dist.finalPosition = activeSlide.position;
   }
 
+  activePrevSlide() {
+    if (this.index.prev !== undefined) {
+      this.changeSlide(this.index.prev);
+    }
+  }
+
+  activeNextSlide() {
+    if (this.index.next !== undefined) {
+      this.changeSlide(this.index.next);
+    }
+  }
+
   init() {
     this.bindEvents();
+    this.transition(true);
     this.addSlideEvents();
     this.slidesConfig();
     return this;
