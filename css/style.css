@@ -21,7 +21,19 @@ img {
   display: flex;
 }
 
+.slide:hover {
+  will-change: transform;
+}
+
 .slide li {
   flex-shrink: 0;
   margin: 0 20px;
+  opacity: .8;
+  transform: scale(.8);
+  transition: .5s;
+}
+
+.slide li.active {
+  opacity: 1;
+  transform: scale(1);
 }
