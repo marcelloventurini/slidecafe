@@ -1,11 +1,35 @@
 body {
   margin: 0px;
+  background-color: #F7F7F5;
+  font-family: 'Lora', 'Times New Roman', serif;
 }
 
-ul {
+ul, h1 {
   padding: 0px;
   margin: 0px;
   list-style: none;
+}
+
+/* table tr th {
+  width: 120px;
+} */
+
+form label {
+  display: block;
+}
+
+input {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #26251F;
+}
+
+.menu {
+  padding: 20px 0 40px 0;
+  display: flex;
+  justify-content: center;
+  color: #26251F;
+  font-size: 1.25rem;
 }
 
 img {
@@ -36,4 +60,31 @@ img {
 .slide li.active {
   opacity: 1;
   transform: scale(1);
+}
+
+.container-cafes {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 40px 0;
+}
+
+.container-table {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  display: block;
+  font-family: 'Lora', 'Times New Roman', serif;
+  color: #26251F;
+  background-color: #F7F7F5;
+  border: 1px solid #26251F;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  color: #F7F7F5;
+  background-color: #26251F;
 }

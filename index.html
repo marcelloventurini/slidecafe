@@ -7,9 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slide Cafe</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div class="menu">
+    <h1>slide cafe</h1>
+  </div>
+
   <div class="slide-wrapper">
     <ul class="slide">
       <li><img src="img/ext1.png" alt="outside cafe"></li>
@@ -21,7 +29,34 @@
     </ul>
   </div>
 
-  <script type="module" src="js/script.js"></script>
+  <div class="container-table">
+    <table class="tableCafes">
+      <thead>
+        <tr>
+          <th>store name</th>
+          <th>city</th>
+        </tr>
+      </thead>
+
+      <tbody id="tbody">
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container-cafes">
+    <form class="form-cafes" name="cafes" id="cafes">
+      <label for="storename">store name</label>
+      <input type="text" name="storename" id="storename">
+
+      <label for="city">city</label>
+      <input type="text" name="city" id="city">
+
+      <button onclick="table.adicionar()">adicionar</button>
+    </form>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>
