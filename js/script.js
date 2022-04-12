@@ -160,7 +160,23 @@ class Table {
       this.add(stores);
     };
 
-    console.log(this.arrayStore);
+    this.list();
+    this.clear();
+  }
+
+  list() {
+    let tbody = document.getElementById("tbody");
+    tbody.innerText = "";
+
+    for(let i = 0; i < this.arrayStore.length; i++) {
+      let tr = tbody.insertRow();
+
+      let tdStore = tr.insertCell();
+      let tdCity = tr.insertCell();
+
+      tdStore.innerText = this.arrayStore[i].storeName;
+      tdCity.innerText = this.arrayStore[i].storeCity;
+    }
   }
 
   add(stores) {
@@ -190,6 +206,11 @@ class Table {
       return false;
     }
     return true;
+  }
+
+  clear() {
+    document.getElementById("storename").value = "";
+    document.getElementById("city").value = "";
   }
 }
 
