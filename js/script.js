@@ -151,11 +151,45 @@ slide.activeNextSlide();
 
 class Table {
   constructor() {
-
+    this.arrayStore = [];
   }
 
-  adicionar() {
-    alert("teste");
+  submit() {
+    let stores = this.getData();
+    if (this.validate(stores)) {
+      this.add(stores);
+    };
+
+    console.log(this.arrayStore);
+  }
+
+  add(stores) {
+    this.arrayStore.push(stores);
+  }
+
+  getData() {
+    let store = {};
+    store.storeName = document.getElementById("storename").value;
+    store.storeCity = document.getElementById("city").value;
+    return store;
+  }
+
+  validate(stores) {
+    let msg = "";
+
+    if (stores.storeName === "") {
+      msg += "C'mon, let me know the name of the store! \n";
+    }
+
+    if (stores.storeCity === "") {
+      msg += "Tell me the city, please!";
+    }
+
+    if (msg !== "") {
+      alert(msg);
+      return false;
+    }
+    return true;
   }
 }
 

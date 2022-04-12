@@ -10,10 +10,6 @@ ul, h1 {
   list-style: none;
 }
 
-/* table tr th {
-  width: 120px;
-} */
-
 form label {
   display: block;
 }
@@ -22,6 +18,14 @@ input {
   margin-bottom: 10px;
   box-sizing: border-box;
   border: 1px solid #26251F;
+}
+
+table tr th {
+  width: 100px;
+}
+
+table th, table td {
+  text-align: center;
 }
 
 .menu {
